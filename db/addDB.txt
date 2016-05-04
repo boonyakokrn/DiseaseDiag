@@ -1,0 +1,157 @@
+INSERT INTO listLang(langName) VALUES
+('Thai'),
+('English(soundtrack)');
+
+INSERT INTO listCast(castFname,castMname,castLname,castDesc,dob) VALUES
+('Daniel','','Craig','Daniel Wroughton Craig is an English actor, who trained at the National Youth Theatre and graduated from the Guildhall School of Music and Drama in 1991','1964-03-02'),
+('Harrison','','Ford','Harrison Ford is an American actor and film producer. He gained worldwide fame for his starring roles as Han Solo in the original Star Wars epic space opera trilogy and the title character of the Indiana Jones film series.','1942-07-13'),
+('Emma','Charlotte Duerre','Watson','Emma Charlotte Duerre Watson is a British actress, model, and activist. Watson rose to prominence as Hermione Granger in the Harry Potter film series, appearing in all eight Harry Potter films from 2001 to 2011','1990-04-15');
+
+INSERT INTO listGenre(genre) VALUES
+('Action'),
+('Animation'),
+('Adventure'),
+('Biography'),
+('Comedy'),
+('Western'),
+('Thriller'),
+('Crime & Gangster'),
+('Drama'),
+('Historical'),
+('Documentary'),
+('Horror'),
+('Musical(Dance)'),
+('Sci-Fi'),
+('Fantasy'),
+('Short'),
+('War/Anti-War');
+
+INSERT INTO listProjection(typeDesc) VALUES
+('Digital'),
+('3D'),
+('4DX');
+
+INSERT INTO listMember(memberFname,memberMname,memberLname) VALUES
+('Yanyong','','Prommajarn'),
+('Boonyakorn','Top','Phimpoklang')
+;
+
+INSERT INTO listTheater(typeID) VALUES
+(50001),
+(50002),
+(50003);
+
+START TRANSACTION;
+   INSERT INTO movieInfo (movieName,year,movieLength,movieDesc) VALUES 
+   ('Star Wars: Episode IV - A New Hope',1977,121,'Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a wookiee and two droids to save the universe from the world-destroying battle-station');
+   INSERT INTO movieLang VALUES (LAST_INSERT_ID() ,20001);
+   INSERT INTO movieLang VALUES (LAST_INSERT_ID() ,20002);
+   INSERT INTO movieCast VALUES (LAST_INSERT_ID() ,30002);
+   INSERT INTO movieGenre VALUES (LAST_INSERT_ID() ,40001);
+   INSERT INTO movieGenre VALUES (LAST_INSERT_ID() ,40014);
+   INSERT INTO movieGenre VALUES (LAST_INSERT_ID() ,40003);
+   INSERT INTO movieProjection VALUES (LAST_INSERT_ID() ,50001);
+   INSERT INTO movieProjection VALUES (LAST_INSERT_ID() ,50002);
+COMMIT;
+
+START TRANSACTION;
+   INSERT INTO movieInfo (movieName,year,movieLength,movieDesc) VALUES 
+   ('Spectre ',2015,148,'A cryptic message from the past sends him on a trail to uncover a sinister organization.');
+   INSERT INTO movieLang VALUES (LAST_INSERT_ID(),20001);
+   INSERT INTO movieLang VALUES (LAST_INSERT_ID(),20002);
+   INSERT INTO movieCast VALUES (LAST_INSERT_ID(),30001);
+   INSERT INTO movieCast VALUES (LAST_INSERT_ID(),30003);
+   INSERT INTO movieGenre VALUES (LAST_INSERT_ID(),40001);
+   INSERT INTO movieGenre VALUES (LAST_INSERT_ID(),40007);
+   INSERT INTO movieProjection VALUES (LAST_INSERT_ID(),50001);
+   INSERT INTO movieProjection VALUES (LAST_INSERT_ID(),50002);
+   INSERT INTO movieProjection VALUES (LAST_INSERT_ID(),50003);
+COMMIT;
+
+
+START TRANSACTION;
+   INSERT INTO listProgram (startDate,endDate,theaterID) VALUES 
+   ('2015-12-05','2015-12-12',00001);
+   INSERT INTO movieProgram (programID,movieID,movieTime) VALUES (LAST_INSERT_ID(),10001,'11:00:00');
+   UPDATE movieProgram
+   SET programNo = 1
+   WHERE movieTime = "11:00:00";
+
+   INSERT INTO movieProgram (programID,movieID,movieTime) VALUES (LAST_INSERT_ID(),10001,'12:15:00');
+      UPDATE movieProgram
+   SET programNo = 2
+   WHERE movieTime = "12:15:00";
+
+   INSERT INTO movieProgram (programID,movieID ,movieTime) VALUES (LAST_INSERT_ID(),10002,'13:30:00');
+      UPDATE movieProgram
+   SET programNo = 3
+   WHERE movieTime = "13:30:00";
+
+
+COMMIT;
+
+
+START TRANSACTION;
+   INSERT INTO listProgram (startDate,endDate,theaterID) VALUES 
+   ('2015-12-04','2015-12-12',00002);
+   INSERT INTO movieProgram (programID,movieID,movieTime) VALUES (LAST_INSERT_ID(),10002,'11:00:00');
+      UPDATE movieProgram
+   SET programNo = 1
+   WHERE movieTime = "11:00:00";
+
+   INSERT INTO movieProgram (programID,movieID,movieTime) VALUES (LAST_INSERT_ID(),10001,'14:00:00');
+      UPDATE movieProgram
+   SET programNo = 2
+   WHERE movieTime = "14:00:00";
+
+   INSERT INTO movieProgram (programID,movieID,movieTime) VALUES (LAST_INSERT_ID(),10002,'15:45:00');
+   UPDATE movieProgram
+   SET programNo = 3
+   WHERE movieTime = "15:45:00";
+COMMIT;
+
+START TRANSACTION;
+   INSERT INTO movieBooking (programNo,programID,programDate,memberID,totalSeat) VALUES
+   (3,60002,'2015-12-08',80001,1);
+   UPDATE movieBooking 
+   SET totalPrice = totalSeat*100
+   WHERE bookingID = LAST_INSERT_ID()
+   ;
+COMMIT;
+
+
+START TRANSACTION;
+   INSERT INTO movieBooking (programNo,programID,programDate,memberID,totalSeat) VALUES
+   (1,60001,'2015-12-06',80002,5);
+   UPDATE movieBooking 
+   SET totalPrice = totalSeat*100
+   WHERE bookingID = LAST_INSERT_ID()
+   ;
+COMMIT;
+
+
+
+START TRANSACTION;
+   INSERT INTO movieBooking (programNo,programID,programDate,memberID,totalSeat) VALUES
+   (3,60001,'2015-12-07',80001,10);
+   UPDATE movieBooking 
+   SET totalPrice = totalSeat*100
+   WHERE bookingID = LAST_INSERT_ID()
+   ;
+COMMIT;
+
+
+
+START TRANSACTION;
+   INSERT INTO movieBooking (programNo,programID,programDate,memberID,totalSeat) VALUES
+   (2,60001,'2015-12-06',80001,3);
+   UPDATE movieBooking 
+   SET totalPrice = totalSeat*100
+   WHERE bookingID = LAST_INSERT_ID()
+   ;
+COMMIT;
+
+
+  
+
+
