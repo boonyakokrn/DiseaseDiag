@@ -1,7 +1,47 @@
-INSERT INTO listLang(langName) VALUES
-('Thai'),
-('English(soundtrack)');
+INSERT INTO question(question) VALUES
+('Fever ?'),
+('Cough ?');
 
+INSERT INTO answer(answer) VALUES
+('Yes'),
+('No');
+
+INSERT INTO bodyPart(partName) VALUES
+('Head'),
+('Body');
+
+----------------------------
+
+INSERT INTO listQuestion(partID,qID) VALUES
+('00001','00001'),
+('00001','00002');
+
+INSERT INTO listQA(qID,ansID) VALUES
+('00001','00001'),
+('00001','00002'),
+('00002','00001'),
+('00002','00002');
+
+-----------------------------
+
+INSERT INTO disease(disName,disDesc) VALUES
+('Common Fever','Fever that commonly happen.');
+
+INSERT INTO cure(cureDesc) VALUES
+('Sleep 8 hrs/day'),
+('Ask the doctor');
+
+-------------------------------------
+
+INSERT INTO listCure(disID,cureID) VALUES
+('00001','00001'),
+('00001','00002');
+
+INSERT INTO listDis(disID,ansID) VALUES
+('00001','00001'),
+('00001','00002');
+
+--------------------------------------
 INSERT INTO listCast(castFname,castMname,castLname,castDesc,dob) VALUES
 ('Daniel','','Craig','Daniel Wroughton Craig is an English actor, who trained at the National Youth Theatre and graduated from the Guildhall School of Music and Drama in 1991','1964-03-02'),
 ('Harrison','','Ford','Harrison Ford is an American actor and film producer. He gained worldwide fame for his starring roles as Han Solo in the original Star Wars epic space opera trilogy and the title character of the Indiana Jones film series.','1942-07-13'),
