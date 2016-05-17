@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2016 at 10:16 AM
+-- Generation Time: May 17, 2016 at 05:56 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -29,7 +29,15 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `answer` (
   `ansID` int(5) unsigned zerofill NOT NULL,
   `answer` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10003 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `answer`
+--
+
+INSERT INTO `answer` (`ansID`, `answer`) VALUES
+(10001, 'Yes'),
+(10002, 'No');
 
 -- --------------------------------------------------------
 
@@ -40,7 +48,15 @@ CREATE TABLE IF NOT EXISTS `answer` (
 CREATE TABLE IF NOT EXISTS `bodypart` (
   `partID` int(5) unsigned zerofill NOT NULL,
   `partName` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20003 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `bodypart`
+--
+
+INSERT INTO `bodypart` (`partID`, `partName`) VALUES
+(20001, 'Head'),
+(20002, 'Body');
 
 -- --------------------------------------------------------
 
@@ -51,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `bodypart` (
 CREATE TABLE IF NOT EXISTS `cure` (
   `cureID` int(5) unsigned zerofill NOT NULL,
   `cureDesc` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=40001 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -63,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `disease` (
   `disID` int(5) unsigned zerofill NOT NULL,
   `disName` text NOT NULL,
   `disDesc` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30001 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -84,6 +100,7 @@ CREATE TABLE IF NOT EXISTS `listcure` (
 
 CREATE TABLE IF NOT EXISTS `listdis` (
   `disID` int(5) unsigned zerofill NOT NULL,
+  `qID` int(5) unsigned zerofill NOT NULL,
   `ansID` int(5) unsigned zerofill NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -112,13 +129,44 @@ CREATE TABLE IF NOT EXISTS `listquestion` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `listses`
+--
+
+CREATE TABLE IF NOT EXISTS `listses` (
+  `sesID` int(5) unsigned zerofill NOT NULL,
+  `qID` int(5) unsigned zerofill NOT NULL,
+  `ansID` int(5) unsigned zerofill NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `question`
 --
 
 CREATE TABLE IF NOT EXISTS `question` (
   `qID` int(5) unsigned zerofill NOT NULL,
   `question` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `question`
+--
+
+INSERT INTO `question` (`qID`, `question`) VALUES
+(00001, 'Fever ?'),
+(00002, 'Cough ?');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `session`
+--
+
+CREATE TABLE IF NOT EXISTS `session` (
+  `sesID` int(5) unsigned zerofill NOT NULL,
+  `sesTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AUTO_INCREMENT=50001 DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
@@ -158,7 +206,7 @@ ALTER TABLE `listcure`
 -- Indexes for table `listdis`
 --
 ALTER TABLE `listdis`
-  ADD PRIMARY KEY (`disID`,`ansID`), ADD KEY `listDis_FK2` (`ansID`);
+  ADD PRIMARY KEY (`disID`,`qID`,`ansID`), ADD KEY `listDis_FK2` (`qID`), ADD KEY `listDis_FK3` (`ansID`);
 
 --
 -- Indexes for table `listqa`
@@ -173,10 +221,22 @@ ALTER TABLE `listquestion`
   ADD PRIMARY KEY (`partID`,`qID`), ADD KEY `listQuestion_FK2` (`qID`);
 
 --
+-- Indexes for table `listses`
+--
+ALTER TABLE `listses`
+  ADD PRIMARY KEY (`sesID`,`qID`,`ansID`), ADD KEY `listSes_FK2` (`qID`), ADD KEY `listSes_FK3` (`ansID`);
+
+--
 -- Indexes for table `question`
 --
 ALTER TABLE `question`
   ADD PRIMARY KEY (`qID`);
+
+--
+-- Indexes for table `session`
+--
+ALTER TABLE `session`
+  ADD PRIMARY KEY (`sesID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -186,27 +246,32 @@ ALTER TABLE `question`
 -- AUTO_INCREMENT for table `answer`
 --
 ALTER TABLE `answer`
-  MODIFY `ansID` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT;
+  MODIFY `ansID` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10003;
 --
 -- AUTO_INCREMENT for table `bodypart`
 --
 ALTER TABLE `bodypart`
-  MODIFY `partID` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT;
+  MODIFY `partID` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20003;
 --
 -- AUTO_INCREMENT for table `cure`
 --
 ALTER TABLE `cure`
-  MODIFY `cureID` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT;
+  MODIFY `cureID` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40001;
 --
 -- AUTO_INCREMENT for table `disease`
 --
 ALTER TABLE `disease`
-  MODIFY `disID` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT;
+  MODIFY `disID` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30001;
 --
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `qID` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT;
+  MODIFY `qID` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `session`
+--
+ALTER TABLE `session`
+  MODIFY `sesID` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50001;
 --
 -- Constraints for dumped tables
 --
@@ -223,7 +288,8 @@ ADD CONSTRAINT `listCure_FK2` FOREIGN KEY (`cureID`) REFERENCES `cure` (`cureID`
 --
 ALTER TABLE `listdis`
 ADD CONSTRAINT `listDis_FK1` FOREIGN KEY (`disID`) REFERENCES `disease` (`disID`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `listDis_FK2` FOREIGN KEY (`ansID`) REFERENCES `answer` (`ansID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `listDis_FK2` FOREIGN KEY (`qID`) REFERENCES `question` (`qID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `listDis_FK3` FOREIGN KEY (`ansID`) REFERENCES `answer` (`ansID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `listqa`
@@ -238,6 +304,14 @@ ADD CONSTRAINT `listQA_FK2` FOREIGN KEY (`ansID`) REFERENCES `answer` (`ansID`) 
 ALTER TABLE `listquestion`
 ADD CONSTRAINT `listQuestion_FK1` FOREIGN KEY (`partID`) REFERENCES `bodypart` (`partID`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `listQuestion_FK2` FOREIGN KEY (`qID`) REFERENCES `question` (`qID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `listses`
+--
+ALTER TABLE `listses`
+ADD CONSTRAINT `listSes_FK1` FOREIGN KEY (`sesID`) REFERENCES `session` (`sesID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `listSes_FK2` FOREIGN KEY (`qID`) REFERENCES `question` (`qID`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `listSes_FK3` FOREIGN KEY (`ansID`) REFERENCES `answer` (`ansID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
