@@ -1,0 +1,50 @@
+INSERT INTO question(question) VALUES
+('Do you have any fever ?'),
+('How severe is the headache ?'),
+('Do you have any fever ?'),
+('Can you speak or understand clearly ?'),
+('Are you cough ?');
+
+INSERT INTO answer(answer) VALUES
+('Yes'),
+('No'),
+('Mild'),
+('Heavy'),
+('Severe');
+
+INSERT INTO bodyPart(partName) VALUES
+('Head');
+
+INSERT INTO disease(disName,disDesc) VALUES
+('Common Cold','It commonly happen. The effect is really mild - fever, headache, etc.'),
+('Influenza','It may be hard to distingushed from common cold.Symtom can range from mild to severe. Including high fever, sore throat, muscle pain, headache, sudden and extreme fatigue'),
+('Stroke','This happened due to lack of blood flow or bleeding. They result in part of the brain not function properly. Signs of it include an inability to move or feel on one side of body, poblems understanding or speaking, feeling like the world is spinning or loss of vision to one side.')
+;
+
+INSERT INTO cure(cureDesc) VALUES
+('Sleep 8 hrs/day'),
+('Taking Paracetamol'),
+('Eat and drink well'),
+('Contact the doctor for more information'),
+('Calling Emergency Service Now!!! 1669');
+
+-------------------------------------
+
+INSERT INTO listQuestion(partID,qID) VALUES
+('00001','00001'),
+('00001','00002');
+
+INSERT INTO listQA(qID,ansID) VALUES
+('00001','00001'),
+('00001','00002'),
+('00002','00001'),
+('00002','00002');
+
+
+INSERT INTO listCure(disID,cureID) VALUES
+('00001','00001'),
+('00001','00002');
+
+INSERT INTO listDis(disID,ansID) VALUES
+('00001','00001'),
+('00001','00002');
