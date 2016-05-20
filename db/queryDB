@@ -34,3 +34,11 @@ AND ls.ansID = ld.ansID
 AND ls.sesID = LAST_INSERT_ID()
 GROUP BY ld.disID
 HAVING COUNT(ld.disID) = 5
+
+SELECT DISTINCT listquestion.partID ,question.question, answer.answer FROM question
+JOIN listqa ON listqa.qID = question.qID
+JOIN answer ON listqa.ansID = answer.ansID
+JOIN listquestion ON listquestion.qID = listqa.qID
+JOIN session ON session.partID = listquestion.partID 
+WHERE session.partID = (SELECT partID FROM session WHERE sesID = LAST_INSERT_ID())
+ORDER BY question.qID ASC
