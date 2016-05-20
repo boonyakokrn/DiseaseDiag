@@ -5,11 +5,21 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+       <meta name="viewport" content="initial-scale=1.0">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Disease Diagnosis</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -35,6 +45,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 
 </head>
 
@@ -81,49 +92,102 @@
 
         <div id="page-wrapper">
             <div class="row">
-                <!-- this form indicates the next page to go when a submit button is pressed -->
-                <form id="demo-form2" action="questions.php" method = "post" data-parsley-validate class="form-horizontal form-label-left">
-                    <div class="col-lg-12">
-                        <!-- for this page , user will select the part he/she wants to diagnose -->
-                        <h1 class="page-header">Diagnose</h1>
-                        <text>Choose your part for diagnose.</text>
-                    </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                
-                    <br>
-                    <!-- this function used for showing sumbit button. When user press the button, the page will change to question page for head part -->
-                    <button type="submit" class="btn btn-info"style=" position:absolute;margin-top:-25px;margin-left:238px ">
-                        <text>Head</text>
-                    </button>
-                </form>
-                <!-- this function used for showing body picture -->
-                <img src="body.jpg" style="width:400px;height:800px;margin-left: 70px;-moz-border-radius: 0px;-webkit-border-radius: 50px;">
-                <!-- this function used for showing sumbit button. When user press the button, the page will change to question page for body part -->
-                <button type="button" class="btn btn-info"style=" position:absolute;margin-top: 200px;margin-left:-235px">
-                    <text>Body</text>
-                </button>
-               <!-- this function used for showing sumbit button. When user press the button, the page will change to questions page for arm part -->
-                <button type="button" class="btn btn-info"style="margin-right: 20px">
-                    <text>Arm or Hand</text>
-                </button>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div>
-                <!-- this function used for showing sumbit button. When user press the button, the page will change to questions page for leg part -->
-                <button type="button" class="btn btn-info"style="margin-left:220px;margin-top: -300px">
-                    <text>Leg or Foot</text>
-                </button>
+                <div class="col-lg-12">
+                    <h1 class="page-header">Map</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
             <!-- /.row -->
             <div class="row">
-
+                  <div id="map" style="width:500px;height:380px;"></div>
+     
         </div>
         <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
+   
+     <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+var map;
+var infowindow;
 
+
+function initMap() {
+
+  var pos = {lat: 13.653414, lng: 100.490234};
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: pos,
+    zoom: 10
+  });
+   var infoWindow = new google.maps.InfoWindow({map: map});
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos1 = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos1);
+            infoWindow.setContent('Location found.');
+            map.setCenter(pos1);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos1);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+
+  infowindow = new google.maps.InfoWindow();
+  var service = new google.maps.places.PlacesService(map);
+  service.nearbySearch({
+    location: pos1,
+    radius: 50000000,
+    type: ['hospital']
+  }, callback);
+}
+
+function callback(results, status) {
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      createMarker(results[i]);
+    }
+  }
+}
+
+function createMarker(place) {
+  var placeLoc = place.geometry.location;
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.setContent(place.name);
+    infowindow.open(map, this);
+  });
+}
+    </script>
+    <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGjmEfqLDwrQnt7a54bMA82F8oaraAu3g&callback=initMap&libraries=places">
+    </script>
     <!-- jQuery -->
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 
@@ -132,15 +196,16 @@
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
+    <script src="//maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    <!-- Morris Charts JavaScript
     <script src="../bower_components/raphael/raphael-min.js"></script>
     <script src="../bower_components/morrisjs/morris.min.js"></script>
     <script src="../js/morris-data.js"></script>
-
+     -->
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
 
 </body>
 
 </html>
+

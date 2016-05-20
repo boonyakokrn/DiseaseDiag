@@ -148,35 +148,37 @@ session_start();
                         <table>
               <thead>
                 <tr>
+                    <!-- this function used for showing table-->
                   <th>Quetion1</th>
                 </tr>
               </thead>
+                    <!-- this function used for showing data from database. which values containing in java script-->
               <tbody id="id01"></tbody>
             </table>
 
-                                    <div class="form-group">
-                                            <div class="col-md-2 col-sm-2 col-xs-2">
+        <div class="form-group">
+            <div class="col-md-2 col-sm-2 col-xs-2">
 
-                                                <?php
-                                                 $connection = mysqli_connect("localhost","root","","dd");
-                                                if (mysqli_connect_errno()){
-                                                $error = "Failed to connect to MySQL: " . mysqli_connect_error();
-                                                }
-                                                $sql = "SELECT a.ansID, a.answer, q.question FROM answer a, question q WHERE qID IN (SELECT qID FROM question WHERE question LIKE 'Fever%' )";
-                                                $result = mysqli_query($connection,$sql);
-                                                 ?>
-                                                <?php 
-                                                while ($row = mysqli_fetch_array($result)){
-                                                //for($i = 0; $i < 1; $i++) {
-                                                ?>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="ans1" value =" <?php echo $row['ansID']; ?> "<?php echo $row['ansID']; ?> class="flat"> <?php echo $row['answer']; ?>
-                                                    </label>
-                                                </div>
-                                                <?php } ?>
-                                            </div>
-                                    </div> 
+                <?php
+                    //this sql used for query answers from database 
+                    $connection = mysqli_connect("localhost","root","","dd");
+                    if (mysqli_connect_errno()){
+                    $error = "Failed to connect to MySQL: " . mysqli_connect_error();
+                    }
+                    $sql = "SELECT a.ansID, a.answer, q.question FROM answer a, question q WHERE qID IN (SELECT qID FROM question WHERE question LIKE 'Fever%' )";
+                    $result = mysqli_query($connection,$sql);
+                    ?>
+                    <?php 
+                    while ($row = mysqli_fetch_array($result)){
+                    ?>
+                    <div class="radio">
+                    <label>
+                            <input type="radio" name="ans1" value =" <?php echo $row['ansID']; ?> "<?php echo $row['ansID']; ?> class="flat"> <?php echo $row['answer']; ?>
+                            </label>
+                    </div>
+                    <?php } ?>
+                    </div>
+                    </div> 
                     <div>
             <table>
               <thead>
@@ -388,6 +390,7 @@ session_start();
       function displayResponse(response) {
         var arr = JSON.parse(response);
         var i;
+        //this function used for showing first question. Which query from database
         var out = "<tbody>";
         for(i = 0; i < 1; i++) {
 
@@ -396,7 +399,7 @@ session_start();
           "</td></tr>";
         }
         out += "</tbody>";
-
+        //this function used for showing second question. Which query from database
         var out2 = "<tbody>";
         for(i = 1; i < 2; i++) {
 
@@ -407,12 +410,13 @@ session_start();
         out2 += "</tbody>";
         var out3 = "<tbody>";
         for(i = 2; i < 3; i++) {
-
+        //this function used for showing third question. Which query from database
            out3 += "<tr><td>" +
           arr[i].question +
           "</td></tr>";
         }
         out3 += "</tbody>";
+        //this function used for showing fourth question. Which query from database
         var out4 = "<tbody>";
         for(i = 3; i < 4; i++) {
 
@@ -421,6 +425,7 @@ session_start();
           "</td></tr>";
         }
         out4 += "</tbody>";
+        //this function used for showing fifth question. Which query from database
         var out5 = "<tbody>";
         for(i = 4; i < 5; i++) {
 
@@ -430,6 +435,7 @@ session_start();
         }
         out5 += "</tbody>";
         //$('select#itemCode').append(out);
+        //this fuction used for contain value then send to show on table
         document.getElementById("id01").innerHTML = out;
         document.getElementById("id02").innerHTML = out2;
         document.getElementById("id03").innerHTML = out3;
