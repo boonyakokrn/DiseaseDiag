@@ -1,0 +1,36 @@
+SELECT question.question,answer.answer FROM question
+JOIN listQA ON listQA.qID = question.qID
+JOIN answer ON listQA.ansID = answer.ansID
+WHERE question.question LIKE "How severe is the headache ?" 
+;
+
+SELECT disease.disName,question.question,answer.answer from disease
+JOIN listDis ON listDis.disID = disease.disID
+JOIN question ON listDis.qID = question.qID
+JOIN answer ON listDis.ansID = answer.ansID
+WHERE disease.disID = 30002;
+
+
+SELECT disease.disName, disease.disDesc , cure.cureDesc
+FROM cure, listCure, disease
+WHERE listCure.disID = (
+						SELECT d.disID
+						FROM disease d, listDis ld, listSes ls
+						WHERE d.disID = ld.disID
+						AND ls.qID = ld.qID
+						AND ls.ansID = ld.ansID
+						AND ls.sesID = LAST_INSERT_ID()
+						GROUP BY ld.disID
+						HAVING COUNT(ld.disID) = 5
+						)
+AND cure.cureID = listcure.cureID
+AND disease.disID = listcure.disID
+
+SELECT d.disName, d.disDesc
+FROM disease d, listDis ld, listSes ls
+WHERE d.disID = ld.disID
+AND ls.qID = ld.qID
+AND ls.ansID = ld.ansID
+AND ls.sesID = LAST_INSERT_ID()
+GROUP BY ld.disID
+HAVING COUNT(ld.disID) = 5
