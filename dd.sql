@@ -80,6 +80,13 @@ CREATE TABLE IF NOT EXISTS `cure` (
 --
 
 INSERT INTO `cure` (`cureID`, `cureDesc`, `suggest`) VALUES
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
+>>>>>>> 67d1c04d23bb6d913532054eec0ceaa9450be163
 (40001, 'Commit suicide', 'If you are not dead, come to see me.'),
 (40002, 'Go to hell', 'If the angels are not there, come to see me.'),
 (40003, 'Sleep 8 hrs/day', ''),
@@ -102,6 +109,34 @@ INSERT INTO `cure` (`cureID`, `cureDesc`, `suggest`) VALUES
 (40020, 'Eat and drink well', ''),
 (40021, 'Contact the doctor for more information', ''),
 (40022, 'Calling Emergency Service Now!!! 1669', '');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+(40001, 'Sleep 8 hrs/day', ''),
+(40002, 'Taking Paracetamol', ''),
+(40003, 'Eat and drink well', ''),
+(40004, 'Contact the doctor for more information', ''),
+(40005, 'Calling Emergency Service Now!!! 1669', ''),
+(40006, 'Sleep 8 hrs/day', ''),
+(40007, 'Taking Paracetamol', ''),
+(40008, 'Eat and drink well', ''),
+(40009, 'Contact the doctor for more information', ''),
+(40010, 'Calling Emergency Service Now!!! 1669', ''),
+(40011, 'Sleep 8 hrs/day', ''),
+(40012, 'Taking Paracetamol', ''),
+(40013, 'Eat and drink well', ''),
+(40014, 'Contact the doctor for more information', ''),
+(40015, 'Calling Emergency Service Now!!! 1669', ''),
+(40016, 'Sleep 8 hrs/day', ''),
+(40017, 'Taking Paracetamol', ''),
+(40018, 'Eat and drink well', ''),
+(40019, 'Contact the doctor for more information', ''),
+(40020, 'Calling Emergency Service Now!!! 1669', '');
+>>>>>>> e0c8340b73bd9c8f4ab045899debcb1efbca7d15
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
+>>>>>>> 67d1c04d23bb6d913532054eec0ceaa9450be163
 
 -- --------------------------------------------------------
 
