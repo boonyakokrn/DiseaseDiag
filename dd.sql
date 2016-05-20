@@ -80,28 +80,26 @@ CREATE TABLE IF NOT EXISTS `cure` (
 --
 
 INSERT INTO `cure` (`cureID`, `cureDesc`, `suggest`) VALUES
-(40001, 'Commit suicide', 'If you are not dead, come to see me.'),
-(40002, 'Go to hell', 'If the angels are not there, come to see me.'),
-(40003, 'Sleep 8 hrs/day', ''),
-(40004, 'Taking Paracetamol', ''),
-(40005, 'Eat and drink well', ''),
-(40006, 'Contact the doctor for more information', ''),
-(40007, 'Calling Emergency Service Now!!! 1669', ''),
-(40008, 'Sleep 8 hrs/day', ''),
-(40009, 'Taking Paracetamol', ''),
-(40010, 'Eat and drink well', ''),
-(40011, 'Contact the doctor for more information', ''),
-(40012, 'Calling Emergency Service Now!!! 1669', ''),
-(40013, 'Sleep 8 hrs/day', ''),
-(40014, 'Taking Paracetamol', ''),
-(40015, 'Eat and drink well', ''),
-(40016, 'Contact the doctor for more information', ''),
-(40017, 'Calling Emergency Service Now!!! 1669', ''),
-(40018, 'Sleep 8 hrs/day', ''),
-(40019, 'Taking Paracetamol', ''),
-(40020, 'Eat and drink well', ''),
-(40021, 'Contact the doctor for more information', ''),
-(40022, 'Calling Emergency Service Now!!! 1669', '');
+(40001, 'Sleep 8 hrs/day', ''),
+(40002, 'Taking Paracetamol', ''),
+(40003, 'Eat and drink well', ''),
+(40004, 'Contact the doctor for more information', ''),
+(40005, 'Calling Emergency Service Now!!! 1669', ''),
+(40006, 'Sleep 8 hrs/day', ''),
+(40007, 'Taking Paracetamol', ''),
+(40008, 'Eat and drink well', ''),
+(40009, 'Contact the doctor for more information', ''),
+(40010, 'Calling Emergency Service Now!!! 1669', ''),
+(40011, 'Sleep 8 hrs/day', ''),
+(40012, 'Taking Paracetamol', ''),
+(40013, 'Eat and drink well', ''),
+(40014, 'Contact the doctor for more information', ''),
+(40015, 'Calling Emergency Service Now!!! 1669', ''),
+(40016, 'Sleep 8 hrs/day', ''),
+(40017, 'Taking Paracetamol', ''),
+(40018, 'Eat and drink well', ''),
+(40019, 'Contact the doctor for more information', ''),
+(40020, 'Calling Emergency Service Now!!! 1669', '');
 
 -- --------------------------------------------------------
 
