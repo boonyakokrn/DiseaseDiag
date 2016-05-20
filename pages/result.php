@@ -41,6 +41,13 @@ session_start();
 	$ansID3 = mysqli_real_escape_string($conn, $_POST['ans3']);
 	$ansID4 = mysqli_real_escape_string($conn, $_POST['ans4']);
 	$ansID5 = mysqli_real_escape_string($conn, $_POST['ans5']);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 67d1c04d23bb6d913532054eec0ceaa9450be163
+>>>>>>> df5a6a1d49c718160b06376cd2354971ddb53257
   $qID1 = mysqli_real_escape_string($conn, $_SESSION["qID"][0]);
   $qID2 = mysqli_real_escape_string($conn, $_SESSION["qID"][1]);
   $qID3 = mysqli_real_escape_string($conn, $_SESSION["qID"][2]);
@@ -51,6 +58,38 @@ session_start();
 	mysql_query("START TRANSACTION");
 	$sql = "INSERT INTO listSes (sesID,qID, ansID)
 VALUES ('$sesID','$qID1', '$ansID1'), ('$sesID','$qID2', '$ansID2'), ('$sesID','$qID3', '$ansID3'), ('$sesID','$qID4', '$ansID4'), ('$sesID','$qID5', '$ansID5');";
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+	$sesID  = mysqli_real_escape_string($conn, $_SESSION['sesId']);
+
+	$partID = mysqli_real_escape_string($conn, $_SESSION['partID']);
+
+	mysql_query("START TRANSACTION");
+	$sql0 = "INSERT INTO session(partID) VALUES('$partID');";
+	$a1 = 1;
+	if (!mysqli_query($conn,$sql0)) {
+	$a1 = 0;
+	die('Error: ' . mysqli_error($conn));
+	}
+	if ($a1) {
+    mysql_query("COMMIT");
+	} else {        
+    mysql_query("ROLLBACK");
+	}
+	echo "The data has been added into the database0.";
+	
+
+
+
+	mysql_query("START TRANSACTION");
+	$sql = "INSERT INTO listSes (sesID,qID, ansID)
+VALUES ('$sesID','00001', '$ansID1'), ('$sesID','00002', '$ansID2'), ('$sesID','00003', '$ansID3'), ('$sesID','00004', '$ansID4'), ('$sesID','00005', '$ansID5');";
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
+>>>>>>> 67d1c04d23bb6d913532054eec0ceaa9450be163
+>>>>>>> df5a6a1d49c718160b06376cd2354971ddb53257
 	$a2 = 1;
 	if (!mysqli_query($conn,$sql)) {
 	$a2 = 0;
@@ -169,11 +208,27 @@ VALUES ('$sesID','$qID1', '$ansID1'), ('$sesID','$qID2', '$ansID2'), ('$sesID','
             
 
             <div class="row">
+<<<<<<< HEAD
              <form id="demo-form2"  action="index2.html" method = "post" data-parsley-validate class="form-horizontal form-label-left">
                         <table>
               <thead>
                 <tr>
                   <th>The predicted result is</th>
+=======
+             <form id="demo-form2" action="movie2.php" method = "post" data-parsley-validate class="form-horizontal form-label-left">
+                        <table>
+              <thead>
+                <tr>
+<<<<<<< HEAD
+                  <th>The predicted result is</th>
+=======
+<<<<<<< HEAD
+                  <th>The predicted result is</th>
+=======
+                  <th>You have the opportunity to</th>
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
+>>>>>>> 67d1c04d23bb6d913532054eec0ceaa9450be163
+>>>>>>> df5a6a1d49c718160b06376cd2354971ddb53257
                 </tr>
               </thead>
               <tbody id="id01"></tbody>
@@ -183,12 +238,25 @@ VALUES ('$sesID','$qID1', '$ansID1'), ('$sesID','$qID2', '$ansID2'), ('$sesID','
             <table>
               <thead>
                 <tr>
+<<<<<<< HEAD
                   <th>Suggestions</th>
+=======
+<<<<<<< HEAD
+                  <th>Suggestions</th>
+=======
+<<<<<<< HEAD
+                  <th>Suggestions</th>
+=======
+                  <th>Quetion2</th>
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
+>>>>>>> 67d1c04d23bb6d913532054eec0ceaa9450be163
+>>>>>>> df5a6a1d49c718160b06376cd2354971ddb53257
                 </tr>
               </thead>
               <tbody id="id03"></tbody>
             </table>
         </div>
+<<<<<<< HEAD
 
 
  <div class="ln_solid"></div>
@@ -198,6 +266,28 @@ VALUES ('$sesID','$qID1', '$ansID1'), ('$sesID','$qID2', '$ansID2'), ('$sesID','
                                                 <button type="submit"  id="submitForm" class="btn btn-success">Submit</button>
                                             </div>
                                         </div>
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+
+=======
+                            <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Quetion2</th>
+                </tr>
+              </thead>
+              <tbody id="id04"></tbody>
+            </table>
+        </div>  
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
+>>>>>>> 67d1c04d23bb6d913532054eec0ceaa9450be163
+     
+
+>>>>>>> df5a6a1d49c718160b06376cd2354971ddb53257
 
                             
 
@@ -267,13 +357,42 @@ VALUES ('$sesID','$qID1', '$ansID1'), ('$sesID','$qID2', '$ansID2'), ('$sesID','
           "</td></tr>";
         }
         var out3 = "<tbody>";
+<<<<<<< HEAD
         for(i = 0; i < arr.length; i++) {
+=======
+<<<<<<< HEAD
+        for(i = 0; i < arr.length; i++) {
+=======
+<<<<<<< HEAD
+        for(i = 0; i < arr.length; i++) {
+=======
+        for(i = 0; i < 1; i++) {
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
+>>>>>>> 67d1c04d23bb6d913532054eec0ceaa9450be163
+>>>>>>> df5a6a1d49c718160b06376cd2354971ddb53257
 
            out3 += "<tr><td>" +
           arr[i].cureDesc +
           "</td></tr>";
         }
         out3 += "</tbody>";
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        var out4 = "<tbody>";
+        for(i = 0; i < 1; i++) {
+
+           out4 += "<tr><td>" +
+          arr[i].suggest +
+          "</td></tr>";
+        }
+        out4 += "</tbody>";
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
+>>>>>>> 67d1c04d23bb6d913532054eec0ceaa9450be163
+>>>>>>> df5a6a1d49c718160b06376cd2354971ddb53257
         //$('select#itemCode').append(out);
         document.getElementById("id01").innerHTML = out;
         document.getElementById("id02").innerHTML = out2;
