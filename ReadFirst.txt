@@ -1,0 +1,7 @@
+Instruction
+1. Load all file in github
+2. Extract "startbootstrap-sb-admin-2-1.0.8.rar"
+3. Replace all Data
+4. Put in directory "localhost\eiei\startbootstrap-sb-admin-2-1.0.8
+5. Add database "dd-1.sql" inside "startbootstrap-sb-admin-2-1.0.8\db"
+6. Create new database in phpMyAdmin name: dd type: utf8_unicode

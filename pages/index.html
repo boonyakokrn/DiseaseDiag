@@ -81,16 +81,18 @@
 
         <div id="page-wrapper">
             <div class="row">
+                <form id="demo-form2" action="questions.php" method = "post" data-parsley-validate class="form-horizontal form-label-left">
                 <div class="col-lg-12">
                     <h1 class="page-header">Diagnose</h1>
                     <text>Choose your part for diagnose.</text>
                 </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                
                 <br>
-            
-                <button type="button" class="btn btn-info"style=" position:absolute;margin-top:-25px;margin-left:238px ">
+
+                
+                <button type="submit" name = "bodypart" value = "20001" class="btn btn-info"style=" position:absolute;margin-top:-25px;margin-left:238px ">
                     <text>Head</text>
                 </button>
-
+  </form>
                 <img src="body.jpg" style="width:400px;height:800px;margin-left: 70px;-moz-border-radius: 0px;-webkit-border-radius: 50px;">
                 <button type="button" class="btn btn-info"style=" position:absolute;margin-top: 200px;margin-left:-235px">
                     <text>Body</text>
@@ -101,16 +103,8 @@
                 </button>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                
-                
-                <button type="button" class="btn btn-success">
-                    <text>Normal Diagnose</text>
-                </button>
-               
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 
-                 <button type="button"class="btn btn-danger" >
-                    <text>Picture Diagnose</text>
-                </button>
                 <div>
                 <button type="button" class="btn btn-info"style="margin-left:220px;margin-top: -300px">
                     <text>Leg or Foot</text>
@@ -122,7 +116,6 @@
             <!-- /.row -->
             <div class="row">
 
-     
         </div>
         <!-- /#page-wrapper -->
 
