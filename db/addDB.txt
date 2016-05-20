@@ -31,8 +31,11 @@ INSERT INTO cure(cureDesc) VALUES
 -------------------------------------
 
 INSERT INTO listQuestion(partID,qID) VALUES
-('00001','00001'),
-('00001','00002');
+('20001','00006'),
+('20001','00007'),
+('20001','00008'),
+('20001','00009'),
+('20001','00010');
 
 INSERT INTO listQA(qID,ansID) VALUES
 ('00001','00001'),
