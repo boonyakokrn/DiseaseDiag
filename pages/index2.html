@@ -71,6 +71,7 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
+<<<<<<< HEAD
                         <!-- import profile picture -->
                         <li>
                         <img src="eiei.jpg" alt="Mountain View" style="width:200px;height:200px;margin-left: 25px;-moz-border-radius: 50px;-webkit-border-radius: 50px;">
@@ -86,6 +87,19 @@
                         <!-- sign out button -->
                         <li>
                             <a href="index.html"><i class="glyphicon glyphicon-off"></i> Sign Out</a>
+=======
+                        <li>
+                        <img src="eiei.jpg" alt="Mountain View" style="width:200px;height:200px;margin-left: 25px;-moz-border-radius: 50px;-webkit-border-radius: 50px;">
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="glyphicon glyphicon-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="glyphicon glyphicon-search"></i> Diagnose</a>
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="glyphicon glyphicon-off"></i>  Sign Out</a>
+>>>>>>> df88f195edf3ac72df7c46d91a0af0645e7e41ec
                         </li>
                     </ul>
                 </div>
@@ -111,7 +125,11 @@
 
     </div>
     <!-- /#wrapper -->
+<<<<<<< HEAD
 
+=======
+   
+>>>>>>> df88f195edf3ac72df7c46d91a0af0645e7e41ec
      <script>
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
@@ -120,7 +138,11 @@
 var map;
 var infowindow;
 
+<<<<<<< HEAD
 // Map initializing function, used to indicate the current location of the user
+=======
+
+>>>>>>> df88f195edf3ac72df7c46d91a0af0645e7e41ec
 function initMap() {
 
   var pos = {lat: 13.653414, lng: 100.490234};
@@ -149,6 +171,10 @@ function initMap() {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
+<<<<<<< HEAD
+=======
+      
+>>>>>>> df88f195edf3ac72df7c46d91a0af0645e7e41ec
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos1);
@@ -157,7 +183,10 @@ function initMap() {
                               'Error: Your browser doesn\'t support geolocation.');
       }
 
+<<<<<<< HEAD
   // find hospital-type place
+=======
+>>>>>>> df88f195edf3ac72df7c46d91a0af0645e7e41ec
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
@@ -167,7 +196,10 @@ function initMap() {
   }, callback);
 }
 
+<<<<<<< HEAD
 // Callback function, used to locate the hospitals in the map
+=======
+>>>>>>> df88f195edf3ac72df7c46d91a0af0645e7e41ec
 function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
@@ -176,7 +208,10 @@ function callback(results, status) {
   }
 }
 
+<<<<<<< HEAD
 // Pin markers on the location of the hospitals returned from callback function
+=======
+>>>>>>> df88f195edf3ac72df7c46d91a0af0645e7e41ec
 function createMarker(place) {
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
@@ -210,5 +245,13 @@ function createMarker(place) {
      -->
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+<<<<<<< HEAD
 </body>
 </html>
+=======
+
+</body>
+
+</html>
+
+>>>>>>> df88f195edf3ac72df7c46d91a0af0645e7e41ec
