@@ -119,6 +119,8 @@
           zoom: 17
         });
         var infoWindow = new google.maps.InfoWindow({map: map});
+          var kmutt1 = {lat: 13.651748, lng: 100.494827};
+          var kmutt2 = {lat: 13.653536, lng: 100.489280};
           var chicago = {lat: 41.85, lng: -87.65};
             var indianapolis = {lat: 39.79, lng: -86.14};
         // Try HTML5 geolocation.
@@ -127,6 +129,10 @@
             var lat1 = position.coords.latitude;
             var lng1 = position.coords.longitude;
             var pos = {
+              lat: lat1,
+              lng: lng1
+            };
+            var myLocation = {
               lat: lat1,
               lng: lng1
             };
@@ -145,8 +151,8 @@
         });
           // Set destination, origin and travel mode.
         var request = {
-         destination: chicago,
-         origin: myLocation,
+         destination: kmutt1,
+         origin: kmutt2,
          travelMode: google.maps.TravelMode.DRIVING
             };
 
