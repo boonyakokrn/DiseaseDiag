@@ -71,6 +71,26 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                        <!-- import profile picture -->
+                        <li>
+                        <img src="eiei.jpg" alt="Mountain View" style="width:200px;height:200px;margin-left: 25px;-moz-border-radius: 50px;-webkit-border-radius: 50px;">
+                        </li>
+                        <!-- profile button used to edit the user profile account -->
+                        <li>
+                            <a href="index.html"><i class="glyphicon glyphicon-user"></i> Profile</a>
+                        </li>
+                        <!-- diagnose button. When clicked, leads to diagnosis page -->
+                        <li>
+                            <a href="index.html"><i class="glyphicon glyphicon-search"></i> Diagnose</a>
+                        </li>
+                        <!-- sign out button -->
+                        <li>
+                            <a href="index.html"><i class="glyphicon glyphicon-off"></i> Sign Out</a>
+=======
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
                         <li>
                         <img src="eiei.jpg" alt="Mountain View" style="width:200px;height:200px;margin-left: 25px;-moz-border-radius: 50px;-webkit-border-radius: 50px;">
                         </li>
@@ -82,6 +102,10 @@
                         </li>
                         <li>
                             <a href="index.html"><i class="glyphicon glyphicon-off"></i>  Sign Out</a>
+<<<<<<< HEAD
+=======
+>>>>>>> df88f195edf3ac72df7c46d91a0af0645e7e41ec
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
                         </li>
                     </ul>
                 </div>
@@ -107,7 +131,15 @@
 
     </div>
     <!-- /#wrapper -->
+<<<<<<< HEAD
    
+=======
+<<<<<<< HEAD
+
+=======
+   
+>>>>>>> df88f195edf3ac72df7c46d91a0af0645e7e41ec
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
      <script>
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
@@ -116,7 +148,15 @@
 var map;
 var infowindow;
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+// Map initializing function, used to indicate the current location of the user
+=======
+
+>>>>>>> df88f195edf3ac72df7c46d91a0af0645e7e41ec
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
 function initMap() {
 
   var pos = {lat: 13.653414, lng: 100.490234};
@@ -145,24 +185,52 @@ function initMap() {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
+<<<<<<< HEAD
       
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos1) {
+=======
+<<<<<<< HEAD
+=======
+      
+>>>>>>> df88f195edf3ac72df7c46d91a0af0645e7e41ec
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
         infoWindow.setPosition(pos1);
         infoWindow.setContent(browserHasGeolocation ?
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
       }
 
+<<<<<<< HEAD
   //infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
     location: pos,
     radius: 50000,
+=======
+<<<<<<< HEAD
+  // find hospital-type place
+=======
+>>>>>>> df88f195edf3ac72df7c46d91a0af0645e7e41ec
+  infowindow = new google.maps.InfoWindow();
+  var service = new google.maps.places.PlacesService(map);
+  service.nearbySearch({
+    location: pos1,
+    radius: 50000000,
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
     type: ['hospital']
   }, callback);
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+// Callback function, used to locate the hospitals in the map
+=======
+>>>>>>> df88f195edf3ac72df7c46d91a0af0645e7e41ec
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
 function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
@@ -171,6 +239,13 @@ function callback(results, status) {
   }
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+// Pin markers on the location of the hospitals returned from callback function
+=======
+>>>>>>> df88f195edf3ac72df7c46d91a0af0645e7e41ec
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
 function createMarker(place) {
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
@@ -204,8 +279,19 @@ function createMarker(place) {
      -->
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+</body>
+</html>
+=======
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
 
 </body>
 
 </html>
 
+<<<<<<< HEAD
+=======
+>>>>>>> df88f195edf3ac72df7c46d91a0af0645e7e41ec
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690

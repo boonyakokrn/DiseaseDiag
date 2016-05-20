@@ -43,6 +43,7 @@
 session_start();
 
 ?>
+<<<<<<< HEAD
 <?php
     $conn=mysqli_connect("127.0.0.1","root","","dd");
     if (mysqli_connect_errno()){echo "Failed to connect to MySQL: " .
@@ -64,6 +65,8 @@ session_start();
     echo "The data has been added into the database0.";
 
     ?>
+=======
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
 <body>
 
     <div id="wrapper">
@@ -169,6 +172,10 @@ session_start();
                         <table>
               <thead>
                 <tr>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
                   <th>Quetion1</th>
                 </tr>
               </thead>
@@ -183,6 +190,7 @@ session_start();
                                                 if (mysqli_connect_errno()){
                                                 $error = "Failed to connect to MySQL: " . mysqli_connect_error();
                                                 }
+<<<<<<< HEAD
                                                 $sql = "SELECT DISTINCT question.question, answer.ansID, answer.answer FROM question
 JOIN listqa                             ON listqa.qID = question.qID
 JOIN answer ON listqa.ansID = answer.ansID
@@ -196,6 +204,14 @@ ORDER BY question.qID ASC";
                                                 //while ($row = mysqli_fetch_array($result)){
                                                 for($i = 0; $i < 2; $i++) {
                                                 $row = mysqli_fetch_array($result)
+=======
+                                                $sql = "SELECT a.ansID, a.answer, q.question FROM answer a, question q WHERE qID IN (SELECT qID FROM question WHERE question LIKE 'Fever%' )";
+                                                $result = mysqli_query($connection,$sql);
+                                                 ?>
+                                                <?php 
+                                                while ($row = mysqli_fetch_array($result)){
+                                                //for($i = 0; $i < 1; $i++) {
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
                                                 ?>
                                                 <div class="radio">
                                                     <label>
@@ -205,6 +221,42 @@ ORDER BY question.qID ASC";
                                                 <?php } ?>
                                             </div>
                                     </div> 
+<<<<<<< HEAD
+=======
+=======
+                    <!-- this function used for showing table-->
+                  <th>Quetion1</th>
+                </tr>
+              </thead>
+                    <!-- this function used for showing data from database. which values containing in java script-->
+              <tbody id="id01"></tbody>
+            </table>
+
+        <div class="form-group">
+            <div class="col-md-2 col-sm-2 col-xs-2">
+
+                <?php
+                    //this sql used for query answers from database 
+                    $connection = mysqli_connect("localhost","root","","dd");
+                    if (mysqli_connect_errno()){
+                    $error = "Failed to connect to MySQL: " . mysqli_connect_error();
+                    }
+                    $sql = "SELECT a.ansID, a.answer, q.question FROM answer a, question q WHERE qID IN (SELECT qID FROM question WHERE question LIKE 'Fever%' )";
+                    $result = mysqli_query($connection,$sql);
+                    ?>
+                    <?php 
+                    while ($row = mysqli_fetch_array($result)){
+                    ?>
+                    <div class="radio">
+                    <label>
+                            <input type="radio" name="ans1" value =" <?php echo $row['ansID']; ?> "<?php echo $row['ansID']; ?> class="flat"> <?php echo $row['answer']; ?>
+                            </label>
+                    </div>
+                    <?php } ?>
+                    </div>
+                    </div> 
+>>>>>>> e0c8340b73bd9c8f4ab045899debcb1efbca7d15
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
                     <div>
             <table>
               <thead>
@@ -223,6 +275,7 @@ ORDER BY question.qID ASC";
                                                 if (mysqli_connect_errno()){
                                                 $error = "Failed to connect to MySQL: " . mysqli_connect_error();
                                                 }
+<<<<<<< HEAD
                                                 $sql = "SELECT DISTINCT question.question, answer.ansID, answer.answer FROM question
 JOIN listqa                             ON listqa.qID = question.qID
 JOIN answer ON listqa.ansID = answer.ansID
@@ -243,13 +296,25 @@ ORDER BY question.qID ASC";
                                                     else
                                                     {
                                                 
+=======
+                                                $sql = "SELECT a.ansID, a.answer, q.question FROM answer a, question q WHERE qID IN (SELECT qID FROM question WHERE question LIKE 'Cough%' )";
+                                                $result = mysqli_query($connection,$sql);
+                                                 ?>
+                                                <?php 
+                                                while ($row = mysqli_fetch_array($result)){
+                                                //for($i = 0; $i < 1; $i++) {
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
                                                 ?>
                                                 <div class="radio">
                                                     <label>
                                                         <input type="radio" name="ans2" value =" <?php echo $row['ansID']; ?> "<?php echo $row['ansID']; ?> class="flat"> <?php echo $row['answer']; ?>
                                                     </label>
                                                 </div>
+<<<<<<< HEAD
                                                 <?php }} ?>
+=======
+                                                <?php } ?>
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
                                             </div>
                                     </div>
              <div> 
@@ -270,6 +335,7 @@ ORDER BY question.qID ASC";
                                                 if (mysqli_connect_errno()){
                                                 $error = "Failed to connect to MySQL: " . mysqli_connect_error();
                                                 }
+<<<<<<< HEAD
                                                 $sql = "SELECT DISTINCT question.question, answer.ansID, answer.answer FROM question
 JOIN listqa                             ON listqa.qID = question.qID
 JOIN answer ON listqa.ansID = answer.ansID
@@ -290,13 +356,25 @@ ORDER BY question.qID ASC";
                                                     {
                                                 
                                                 
+=======
+                                                $sql = "SELECT a.ansID, a.answer, q.question FROM answer a, question q WHERE qID IN (SELECT qID FROM question WHERE question LIKE 'Headache%' )";
+                                                $result = mysqli_query($connection,$sql);
+                                                 ?>
+                                                <?php 
+                                                while ($row = mysqli_fetch_array($result)){
+                                                //for($i = 0; $i < 1; $i++) {
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
                                                 ?>
                                                 <div class="radio">
                                                     <label>
                                                         <input type="radio" name="ans3" value =" <?php echo $row['ansID']; ?> "<?php echo $row['ansID']; ?> class="flat"> <?php echo $row['answer']; ?>
                                                     </label>
                                                 </div>
+<<<<<<< HEAD
                                                 <?php }} ?>
+=======
+                                                <?php } ?>
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
                                             </div>
                                     </div>
              <div> 
@@ -317,6 +395,7 @@ ORDER BY question.qID ASC";
                                                 if (mysqli_connect_errno()){
                                                 $error = "Failed to connect to MySQL: " . mysqli_connect_error();
                                                 }
+<<<<<<< HEAD
                                                 $sql = "SELECT DISTINCT question.question, answer.ansID, answer.answer FROM question
 JOIN listqa                             ON listqa.qID = question.qID
 JOIN answer ON listqa.ansID = answer.ansID
@@ -341,13 +420,29 @@ ORDER BY question.qID ASC";
                                                     }
                                                     else
                                                     {
+=======
+                                                $sql = "SELECT a.ansID, a.answer, q.question FROM answer a, question q WHERE qID IN (SELECT qID FROM question WHERE question LIKE 'Dizzy%' )";
+                                                $result = mysqli_query($connection,$sql);
+                                                $sql1 = "SELECT MAX(sesID) AS sesID FROM session;";
+                                                $result1 = mysqli_query($connection,$sql1);
+                                                $sql2 = "SELECT MAX(partID) AS partID FROM bodyPart;";
+                                                $result2 = mysqli_query($connection,$sql2);
+                                                 ?>
+                                                <?php 
+                                                while ($row = mysqli_fetch_array($result)){
+                                                //for($i = 0; $i < 1; $i++) {
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
                                                 ?>
                                                 <div class="radio">
                                                     <label>
                                                         <input type="radio" name="ans4" value =" <?php echo $row['ansID']; ?> "<?php echo $row['ansID']; ?> class="flat"> <?php echo $row['answer']; ?>
                                                     </label>
                                                 </div>
+<<<<<<< HEAD
                                                 <?php }} ?>
+=======
+                                                <?php } ?>
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
                                                 <?php 
                                                 while ($row = mysqli_fetch_array($result1)){
                                                 ?>
@@ -356,12 +451,19 @@ ORDER BY question.qID ASC";
 
                                             } ?>
                                               <?php 
+<<<<<<< HEAD
 
                                                 $_SESSION['qID'] = array();
                                                 while ($row = mysqli_fetch_array($result2)){
                                                 ?>
                                                 <?php 
                                                  array_push($_SESSION['qID'],$row['qID']);
+=======
+                                                while ($row = mysqli_fetch_array($result2)){
+                                                ?>
+                                                <?php 
+                                                 $_SESSION['partID'] =  $row['partID'];
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
 
                                             } ?>
 
@@ -387,6 +489,7 @@ ORDER BY question.qID ASC";
                                                 if (mysqli_connect_errno()){
                                                 $error = "Failed to connect to MySQL: " . mysqli_connect_error();
                                                 }
+<<<<<<< HEAD
                                                 $sql = "SELECT DISTINCT question.question, answer.ansID, answer.answer FROM question
 JOIN listqa                             ON listqa.qID = question.qID
 JOIN answer ON listqa.ansID = answer.ansID
@@ -405,13 +508,25 @@ ORDER BY question.qID ASC";
                                                     }
                                                     else
                                                     {
+=======
+                                                $sql = "SELECT a.ansID, a.answer, q.question FROM answer a, question q WHERE qID IN (SELECT qID FROM question WHERE question LIKE 'Sore throat%' )";
+                                                $result = mysqli_query($connection,$sql);
+                                                 ?>
+                                                <?php 
+                                                while ($row = mysqli_fetch_array($result)){
+                                                //for($i = 0; $i < 1; $i++) {
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
                                                 ?>
                                                 <div class="radio">
                                                     <label>
                                                         <input type="radio" name="ans5" value =" <?php echo $row['ansID']; ?> "<?php echo $row['ansID']; ?> class="flat"> <?php echo $row['answer']; ?>
                                                     </label>
                                                 </div>
+<<<<<<< HEAD
                                                 <?php }} ?>
+=======
+                                                <?php } ?>
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
                                             </div>
                                     </div>           
 
@@ -420,7 +535,11 @@ ORDER BY question.qID ASC";
                                         <div class="form-group">
                                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                                 <button type="submit" id ="cancelForm" class="btn btn-primary">Cancel</button>
+<<<<<<< HEAD
                                                 <button type="submit"  id="submitForm" class="btn btn-success">Submit</button>
+=======
+                                                <button type="submit" id="submitForm" class="btn btn-success">Submit</button>
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
                                             </div>
                                         </div>
 </form>
@@ -472,6 +591,13 @@ ORDER BY question.qID ASC";
       function displayResponse(response) {
         var arr = JSON.parse(response);
         var i;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        //this function used for showing first question. Which query from database
+>>>>>>> e0c8340b73bd9c8f4ab045899debcb1efbca7d15
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
         var out = "<tbody>";
         for(i = 0; i < 1; i++) {
 
@@ -480,7 +606,15 @@ ORDER BY question.qID ASC";
           "</td></tr>";
         }
         out += "</tbody>";
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+        //this function used for showing second question. Which query from database
+>>>>>>> e0c8340b73bd9c8f4ab045899debcb1efbca7d15
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
         var out2 = "<tbody>";
         for(i = 1; i < 2; i++) {
 
@@ -491,12 +625,27 @@ ORDER BY question.qID ASC";
         out2 += "</tbody>";
         var out3 = "<tbody>";
         for(i = 2; i < 3; i++) {
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+        //this function used for showing third question. Which query from database
+>>>>>>> e0c8340b73bd9c8f4ab045899debcb1efbca7d15
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
            out3 += "<tr><td>" +
           arr[i].question +
           "</td></tr>";
         }
         out3 += "</tbody>";
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        //this function used for showing fourth question. Which query from database
+>>>>>>> e0c8340b73bd9c8f4ab045899debcb1efbca7d15
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
         var out4 = "<tbody>";
         for(i = 3; i < 4; i++) {
 
@@ -505,6 +654,13 @@ ORDER BY question.qID ASC";
           "</td></tr>";
         }
         out4 += "</tbody>";
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        //this function used for showing fifth question. Which query from database
+>>>>>>> e0c8340b73bd9c8f4ab045899debcb1efbca7d15
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
         var out5 = "<tbody>";
         for(i = 4; i < 5; i++) {
 
@@ -514,6 +670,13 @@ ORDER BY question.qID ASC";
         }
         out5 += "</tbody>";
         //$('select#itemCode').append(out);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        //this fuction used for contain value then send to show on table
+>>>>>>> e0c8340b73bd9c8f4ab045899debcb1efbca7d15
+>>>>>>> 17c6febae14fb6db518cd0d53dd4a6017a11e690
         document.getElementById("id01").innerHTML = out;
         document.getElementById("id02").innerHTML = out2;
         document.getElementById("id03").innerHTML = out3;
